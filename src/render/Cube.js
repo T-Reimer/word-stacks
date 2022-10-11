@@ -90,7 +90,7 @@ export class Cube {
         });
 
         // listen for click/tap events to highlight the given card
-        this.group.on("click", () => {
+        this.group.on("click tap", () => {
             toggleSelection(this);
         });
 

@@ -145,8 +145,7 @@ const removeAnimation = new Konva.Animation(() => {
 }, selectionLayer);
 
 // setup the click listener for the valid word clicked
-wordGroup.on("click", () => {
-    console.log("Click");
+wordGroup.on("click tap", () => {
     if (wordBackground.fill() === validWordOptions.fill) {
         const selected = game.selected.slice();
         removeCubes.push(...selected);
@@ -273,6 +272,21 @@ export function toggleSelection(cube) {
                 wordBackground.fill(validWordOptions.fill);
                 wordBackground.stroke(validWordOptions.stroke);
             } else {
+                if (isVertical) {
+                    const reverseWord = wordValue.split("").reverse().join("");
+                    isValidWord(reverseWord).then((valid) => {
+                        if (valid) {
+                            wordBackground.fill(validWordOptions.fill);
+                            wordBackground.stroke(validWordOptions.stroke);
+
+                            selectedWord.text(reverseWord);
+                        } else {
+                            wordBackground.fill(inValidWordOptions.fill);
+                            wordBackground.stroke(inValidWordOptions.stroke);
+                        }
+                    });
+                }
+
                 wordBackground.fill(inValidWordOptions.fill);
                 wordBackground.stroke(inValidWordOptions.stroke);
             }
