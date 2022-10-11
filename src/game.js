@@ -104,7 +104,7 @@ export function resumeGame() {
                 : getRandomVowel();
 
         addCharacter(char, 0);
-    }, 10 * 1000);
+    }, 8 * 1000);
 }
 
 window.addEventListener("blur", () => pauseGame());
