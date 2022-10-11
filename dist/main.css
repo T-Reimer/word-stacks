@@ -1,0 +1,11 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-color: #242424;
+}
+
+#canvas > div{
+    margin-left: auto;
+    margin-right: auto;
+}
